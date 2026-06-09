@@ -1,0 +1,21 @@
+---
+- name: Set timezone and enable NTP
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Set system timezone
+      community.general.timezone:
+        name: America/Chicago
+
+    - name: Install chrony
+      ansible.builtin.dnf:
+        name: chrony
+        state: present
+
+    - name: Start and enable chronyd
+      ansible.builtin.systemd:
+        name: chronyd
+        state: started
+        enabled: true

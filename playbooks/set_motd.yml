@@ -1,0 +1,18 @@
+---
+- name: Set a custom login banner
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Write MOTD file
+      ansible.builtin.copy:
+        dest: /etc/motd
+        content: |
+          ==========================================
+           Managed by Ansible - {{ inventory_hostname }}
+           Unauthorized access is prohibited.
+          ==========================================
+        owner: root
+        group: root
+        mode: "0644"
