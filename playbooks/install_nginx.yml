@@ -1,0 +1,8 @@
+---
+- name: Install and enable nginx on web hosts
+  hosts: all
+  become: true
+  gather_facts: true
+
+  roles:
+    - nginx

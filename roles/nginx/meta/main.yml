@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  role_name: nginx
+  author: your_name
+  description: Installs and starts nginx
+  min_ansible_version: "2.14"
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+dependencies: []
